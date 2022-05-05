@@ -1,8 +1,9 @@
 import try_methods
 import get_ready
+import operation
 
 def main():
-    try_methods.main()
+    operation.main()
 
 
 main()

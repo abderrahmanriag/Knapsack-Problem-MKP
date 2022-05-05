@@ -52,8 +52,4 @@ def curve():
     plt.show()
 
 
-pickle_in=open(info.sub_path, 'rb')
-items, k=pickle.load(pickle_in)
-for i in range(len(items)):
-    print(items[i].resource)
 

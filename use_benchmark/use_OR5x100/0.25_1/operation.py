@@ -75,9 +75,9 @@ def process(population=Population, i=int, pc=float)->Coor:
     population[-1]=a
     population[-2]=b
 
-    population=greedy.BesttoWorst(population)
+    population=greedy.SortDesc(population)
 
-    b=greedy.BestAndWorst(population)
+    b=greedy.BestAndBad(population)
     #print(fr'{i}--Best={b[1]}')
     coor=Coor
     if i!=0:
@@ -90,13 +90,13 @@ def process(population=Population, i=int, pc=float)->Coor:
     return coor
 
 def main():
-    #greedy.greedy()
-    pickle_in=open(info.best_path, 'rb')
-    best_popu=pickle.load(pickle_in)
+    greedy.greedy()
+    """pickle_in=open(info.best_path, 'rb')
+    best_popu=pickle.load(pickle_in)"""
 
     pickle_in=open(info.sol_path, 'rb')
     population=pickle.load(pickle_in)
-    b=greedy.BestAndWorst(population)
+    b=greedy.BestAndBad(population)
     x=1
     y=b[1]
     coor=[x, y]
@@ -110,7 +110,7 @@ def main():
     value=greedy.fitness(b[0])
     print(fr'value={value}')
     """
-    g = 500  # number of generations
+    g = 50  # number of generations
     print(fr'Creating {g} generations...')
 
     start=time.time()
@@ -120,7 +120,7 @@ def main():
     for i in range(g):
         coor=process(population, i+1, pc)
         coordinates1.append(coor)
-        coor=process(best_popu, i+1, pc1)
+        coor=process(population, i+1, pc1)
         coordinates2.append(coor)
     end=time.time()
     print(fr'running time:{end-start}')
@@ -136,8 +136,8 @@ def main():
     print(fr'max value{max(y1)} generation number={x[y1.index(max(y1))]}for pc={pc1}')"""
 
 
-    plt.plot(x, y, color='b', label=[pc, max(y), x[y.index(max(y))]])
-    plt.plot(x, y1, color='r', label=[pc1, max(y1), x[y1.index(max(y1))]])
+    plt.plot(x, y, color='b', label=(pc, [max(y), x[y.index(max(y))]]))
+    plt.plot(x, y1, color='r', label=(pc1, [max(y1), x[y1.index(max(y1))]]))
     plt.legend(loc='lower center')
 
 
@@ -148,10 +148,7 @@ def main():
 
     plt.show()
 
-start=time.time()
-main()
-end=time.time()
-print(fr'running time.{end-start}')
+
 """
 pickle_in = open(info.best_path, 'rb')
 population = pickle.load(pickle_in)

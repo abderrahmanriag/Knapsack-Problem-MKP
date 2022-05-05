@@ -18,23 +18,11 @@ def greedy():
     for i in range(len(population)):
         value=fitness(population[i])
         population[i]=[population[i], value]
-    b=BestAndWorst(population)
+    b=BestAndBad(population)
     print(fr'best solution in init population ={b[1]}')
-    population=BesttoWorst(population)
+    population=SortDesc(population)
     pickle_out=open(info.sol_path, 'wb')
     pickle.dump(population, pickle_out)
-
-def BesttoWorst(population)->Population:
-    p=[]
-    for i in range(len(population)):
-        p.append(population[i][1])
-    p.sort(reverse=True)
-    for i in range(len(p)):
-        for j in range(len(population)):
-            if p[i]==population[j][1]:
-                p[i]=population[j]
-                break
-    return p
 
 def SortAccordingEff(genome)->Genome:
     sim=eff.simple()
@@ -69,7 +57,9 @@ def fitness(genome:Genome)->int:
     return value
 
 
-def informations(genome:Genome)->int:
+def informations(genome:Genome):
+    value=genome[1]
+    genome=genome[0]
     pickle_in=open(info.sub_path, 'rb')
     items, k=pickle.load(pickle_in)
     cap=len(k.capacities)
@@ -82,14 +72,25 @@ def informations(genome:Genome)->int:
             weights[j]=weights[j]+int(items[genome[i]].resource[j])
         value=value+int(items[genome[i]].value)
     print(fr'cap={k.capacities}')
-    print(fr'weights={weights}')
+    print(fr'weights={weights}, value={value}')
 
 
-def BestAndWorst(solutions)->Genome:
+def BestAndBad(population)->Genome:
     values=[]
-    for i in range(len(solutions)):
-        values.append(solutions[i][1])
+    for i in range(len(population)):
+        values.append(population[i][1])
     m=values.index(max(values))
-    return solutions[m]
+    return population[m]
 
 
+def SortDesc(population)->Population:
+    p=[]
+    for i in range(len(population)):
+        p.append(population[i][1])
+    p.sort(reverse=True)
+    for i in range(len(p)):
+        for j in range(len(population)):
+            if p[i]==population[j][1]:
+                p[i]=population[j]
+                break
+    return p
