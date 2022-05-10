@@ -6,10 +6,10 @@ import greedy
 import efficiency as eff
 import time
 import matplotlib.pyplot as plt
+import Local_Search as LS
 
 Genome=List[int]
 Population=List[Genome]
-Coor=List[int]
 
 def Hill_climbing(a: Genome)->Genome:
     sim=eff.simple()
@@ -30,9 +30,7 @@ def Hill_climbing(a: Genome)->Genome:
     return [a, greedy.fitness(a)]
 
 def local_search(a: Genome, b: Genome)->Population:
-    a=Hill_climbing(a)
-    b=Hill_climbing(b)
-    return [a, b]
+    return LS.mine(a), LS.mine(b)
 
 def selection_pair(population)->Population:
     return choices(
@@ -57,7 +55,7 @@ def genetic(population: Population, cand:int)->Population:
         return crossover(a, b)
     return crossover(b, a)
 
-def process(population=Population, i=int, pc=float)->Coor:
+def process(population=Population, pc=float)->Population:
 
     #populatino size "len(population)"
     ps=len(population)
@@ -66,28 +64,21 @@ def process(population=Population, i=int, pc=float)->Coor:
     cand=ps*pc
 
     a, b=genetic(population, int(cand))
-    a=[a, greedy.fitness(a)]
-    b=[b, greedy.fitness(b)]
-    a, b=local_search(a[0], b[0])
+    a, b=local_search(a, b)
 
-    #print(fr'{a[1]}, {b[1]}')
-
-    population[-1]=a
-    population[-2]=b
+    population[-1]=a; population[-2]=b
 
     population=greedy.SortDesc(population)
 
-    b=greedy.BestAndBad(population)
-    #print(fr'{i}--Best={b[1]}')
-    coor=Coor
-    if i!=0:
-        x=i+1
-        y=b[1]
-        coor=(x, y)
+    return population
 
-    pickle_out=open(info.sol_path, 'wb')
-    pickle.dump(population, pickle_out)
-    return coor
+def begin(population:Population, pc:float, g:int)->Genome:
+    m=[]
+    for i in range(g):
+        population=process(population, pc)
+        b=greedy.BestAndBad(population)
+        m.append(greedy.BestAndBad(population)[1])
+    return m, population
 
 def main():
     greedy.greedy()
@@ -97,63 +88,46 @@ def main():
     pickle_in=open(info.sol_path, 'rb')
     population=pickle.load(pickle_in)
     b=greedy.BestAndBad(population)
-    x=1
-    y=b[1]
-    coor=[x, y]
-    coordinates1=[]
-    coordinates2=[]
-    coordinates1.append(coor)
-    coordinates2.append(coor)
-    """
-    b=greedy.BestAndWorst(population)
-    print(fr'best value={b[1]}')
-    value=greedy.fitness(b[0])
-    print(fr'value={value}')
-    """
-    g = 50  # number of generations
-    print(fr'Creating {g} generations...')
 
-    start=time.time()
+    first=[]
+    second=[]
+
+    first.append(b[1])
+    second.append(b[1])
+
+    g = 500  # number of generations
     #Crossover probability
-    pc=0.3
     pc1=0.2
-    for i in range(g):
-        coor=process(population, i+1, pc)
-        coordinates1.append(coor)
-        coor=process(population, i+1, pc1)
-        coordinates2.append(coor)
+    pc2=0.7
+    start = time.time()
+    print(fr'crossover probability pc={pc1}, and pc={pc2}')
+    print(fr'build {g} generations...')
+
+    m1, popu1=begin(population, pc1, g)
+    first=first+m1
+    m2, popu2=begin(population, pc2, g)
+    second=second+m2
+
+    pickle_out = open(info.sol_path, 'wb')
+    if max(first)>=max(second):
+        pickle.dump(popu1, pickle_out)
+    else:
+        pickle.dump(popu2, pickle_out)
+
     end=time.time()
     print(fr'running time:{end-start}')
 
-    x=[]
-    y=[]
-    y1=[]
-    for i in range(len(coordinates1)):
-        x.append(coordinates1[i][0])
-        y.append(coordinates1[i][1])
-        y1.append(coordinates2[i][1])
-    """print(fr'max value{max(y)} generation number={x[y.index(max(y))]}for pc={pc}')
-    print(fr'max value{max(y1)} generation number={x[y1.index(max(y1))]}for pc={pc1}')"""
+    x=[]; y=[]; y1=[]
+    for i in range(len(first)):
+        x.append(i); y.append(first[i]); y1.append(second[i])
 
-
-    plt.plot(x, y, color='b', label=(pc, [max(y), x[y.index(max(y))]]))
-    plt.plot(x, y1, color='r', label=(pc1, [max(y1), x[y1.index(max(y1))]]))
+    plt.plot(x, y, color='b', label=(pc1, [max(y), x[y.index(max(y))]]))
+    plt.plot(x, y1, color='r', label=(pc2, [max(y1), x[y1.index(max(y1))]]))
     plt.legend(loc='lower center')
-
 
     plt.xlabel('generation')
     plt.ylabel('Fitness value')
 
-    plt.title(fr'fitness func for {g} generations')
+    plt.title(fr'generate {g} generations in {round((end-start), 2)} seconds')
 
     plt.show()
-
-
-"""
-pickle_in = open(info.best_path, 'rb')
-population = pickle.load(pickle_in)
-b = greedy.BestAndWorst(population)
-print(fr'best value={b[1]}')
-value = greedy.fitness(b[0])
-print(fr'value={value}')
-"""

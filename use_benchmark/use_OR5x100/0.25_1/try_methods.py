@@ -1,55 +1,50 @@
 import pickle
 from random import choices, randint, randrange, random
 from typing import List
+import Local_Search as ls
+import greedy
 import info
 
 Genome=List[int]
 Population=List[Genome]
 
-def generate_genome(length:int)->Genome:
-    return [randint(0, 99) for _ in range(length)]
+def selection_pair(popu:Population)->Population:
+    return choices(popu, k=2)
 
-def crossover(a:Genome, b:Genome)->[Genome, Genome]:
-    length=len(b)
-    p=randint(0, length-1)
-    print(fr'p={p}')
+def crossover(a:Genome, b:Genome)->Population:
+    p=randint(0, len(b)-1)
     return a[0:p]+b[p:], b[0:p]+a[p:]
 
-def mutation(genome:Genome, num:int=1, probability:float=0.5)->Genome:
-    index=randrange(len(genome))
-    if random()<probability:
-        r=randint(0, 1)
-        if r==1:
-            n=randint(0, 99)
-            if n not in genome:
-                genome.append(n)
-    return genome
+def genetic(popu:Population, cand:int)->Population:
+    candidates=[]
+    for i in range(cand):
+        candidates.append(popu[i])
+    a, b=selection_pair(candidates)
+    a=a[0]; b=b[0]
+    length=min(len(a), len(b))
+    if length==len(b):
+        return crossover(b, a)
+    return crossover(a, b)
 
-def bit(genom:Genome, length:int)->Genome:
-    return [(0 if i not in genom else 1)for i in range(length)]
+def process(popu:Population, pc:float):
+    print(fr'a={popu[0][1]}, b={popu[1][1]}')
 
-# importing the required module
-import matplotlib.pyplot as plt
+    #population size "len(population)"
+    ps=len(popu)
 
-def curve():
-    # x axis values
-    x = [1, 2, 3]
-    # corresponding y axis values
-    y = [2, 4, 1]
+    #Define the candidate of the crossover operation according the crossover probability pc
+    cand=ps*pc
 
-    # plotting the points
-    plt.plot(x, y)
+    a, b=genetic(popu, int(cand))
 
-    # naming the x axis
-    plt.xlabel('x - axis')
-    # naming the y axis
-    plt.ylabel('y - axis')
+    a=ls.mine(a)
+    b=ls.mine(b)
 
-    # giving a title to my graph
-    plt.title('My first graph!')
-
-    # function to show the plot
-    plt.show()
+    print(fr'a={a[1]}, b{b[1]}')
 
 
+def main():
+    pickle_in=open(info.sol_path, 'rb')
+    popu=pickle.load(pickle_in)
 
+    process(popu, 0.2)
