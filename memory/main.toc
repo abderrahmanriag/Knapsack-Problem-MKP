@@ -1,0 +1,13 @@
+\contentsline {chapter}{\numberline {1}General Introduction:}{5}{}%
+\contentsline {chapter}{\numberline {2}OPTIMIZATION PROBLEM}{7}{}%
+\contentsline {section}{\numberline {1}Knapsack Problem:}{7}{}%
+\contentsline {section}{\numberline {2}Multi-Dimensional Knapsack Problem MDKP:}{7}{}%
+\contentsline {section}{\numberline {3}Multi-dimensional Multi-choice Knapsack Problem (MMKP):}{8}{}%
+\contentsline {chapter}{\numberline {3}THE OPTIMIZATION METHODS}{9}{}%
+\contentsline {section}{\numberline {1}Optimization Methods:}{9}{}%
+\contentsline {section}{\numberline {2}Classification of optimization methods:}{9}{}%
+\contentsline {subsection}{\numberline {2.1}Exact Methods:}{10}{}%
+\contentsline {subsubsection}{The branch and bound algorithms and $A^{*}$:}{10}{}%
+\contentsline {subsubsection}{Constraint Programming:}{10}{}%
+\contentsline {subsection}{\numberline {2.2}Approximate methods:}{10}{}%
+\contentsline {subsubsection}{Definition $\varrho $-Approximation algorithms:}{11}{}%

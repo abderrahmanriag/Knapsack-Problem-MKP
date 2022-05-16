@@ -1,0 +1,9 @@
+\section{References:}
+@inproceedings{r1, iqbal2010solving,
+  title={Solving the multi-dimensional multi-choice knapsack problem with the help of ants},
+  author={Iqbal, Shahrear and Bari, Md and Rahman, M Sohel and others},
+  booktitle={International Conference on Swarm Intelligence},
+  pages={312--323},
+  year={2010},
+  organization={Springer}
+}

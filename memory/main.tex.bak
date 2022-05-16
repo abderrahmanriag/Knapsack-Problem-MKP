@@ -1,0 +1,22 @@
+\documentclass[]{book}
+\usepackage{arabtex}
+\usepackage{float}
+\usepackage{utf8}
+\usepackage{amsmath}
+\usepackage[vmargin={13mm, 13mm}, hmargin={10mm, 15mm}]{geometry}
+\usepackage{tikz}
+\pagestyle{plain}
+\geometry{left=1cm, right=1cm, top=1cm, bottom=1cm}
+\begin{document}
+\thispagestyle{empty}
+\renewcommand{\thesection}{\arabic{section}}
+\input{cover_page}
+\tableofcontents
+\newpage
+\input{introduction}
+\newpage
+\input{presentation}
+\input{description}
+\newpage
+
+\end{document}

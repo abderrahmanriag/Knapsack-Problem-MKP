@@ -1,0 +1,133 @@
+
+\usepackage[left=2cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[demo]{graphicx}
+\usepackage{lipsum}
+\usepackage[table]{xcolor}
+\usepackage{tikz,pgf}
+\usetikzlibrary{shadows.blur}
+\usetikzlibrary{shapes.symbols}
+\usepackage{etoolbox,fancyhdr}
+\usepackage[explicit,calcwidth]{titlesec}
+\usepackage{titletoc}
+\usepackage{ifthen}
+%===========================================
+\definecolor{chapa}{HTML}{15CA7F}
+\definecolor{chapb}{HTML}{CA16BD}
+\definecolor{chapc}{HTML}{DE1841}
+%===========================================
+\definecolor{doc}{RGB}{0,60,110}
+\definecolor{secnum}{RGB}{13,151,225}
+\definecolor{ptcbackground}{RGB}{212,237,252}
+\definecolor{ptctitle}{RGB}{0,177,235}
+\definecolor{doc}{RGB}{0,60,110}
+\definecolor{mybluei}{RGB}{5, 0, 100}
+\definecolor{myblueii}{RGB}{0, 0, 100}
+\definecolor{mybluei2}{RGB}{0,173,239}
+\definecolor{myblueii2}{RGB}{63,200,244}
+\definecolor{myblueiii}{RGB}{199,234,253}
+\definecolor{myblue}{RGB}{0,82,155}
+\definecolor{mybluei3}{RGB}{0,173,239}
+\definecolor{winered}{rgb}{0.5,0,0}
+\definecolor{bule}{RGB}{18,29,57}
+\definecolor{doc}{RGB}{0,60,110}
+\definecolor{denim}{rgb}{0.08, 0.38, 0.74}
+\definecolor{ufla_blue}{HTML}{224271} 
+\definecolor{chaptercolor}{rgb}{0.36,0.73,0.82}
+\definecolor{MainRed}{rgb}{.6, .1, .1}
+\definecolor{GoldDecoration}{RGB}{170, 120, 70}
+\definecolor{gray}{RGB}{236,236,236}
+\definecolor{ugentblauw}{cmyk}{1 0.8 0.3 0.05}
+\definecolor{definitioncolor}{gray}{0.65}
+\definecolor{clight2}{RGB}{212, 237, 244}
+\definecolor{clight1}{RGB}{138, 208, 248}
+\definecolor{clight}{RGB}{237, 244, 248}
+\definecolor{main}{RGB}{0,120,2}
+%===========================================
+%===========================================
+\usepackage[titletoc]{appendix}
+\makeatletter
+\newcommand{\ch@ngeCouleurs}[1]
+{%
+ \ifthenelse{\equal{#1}{1}}{\gdef\ch@p{chapa}}{}
+ \ifthenelse{\equal{#1}{2}}{\gdef\ch@p{chapb}}{}
+ \ifthenelse{\equal{#1}{3}}{\gdef\ch@p{chapc}}{}
+}
+\usepackage{etoolbox}
+\AtBeginEnvironment{appendices}{%
+ \makeatletter
+ \addtocontents{toc}{\protect\renewcommand{\protect\@chapapp}{\protect\appendixname}}
+ \makeatother
+}
+%===========================================
+\contentsmargin{0cm}
+\titlecontents{chapter}[0pc]
+{\addvspace{30pt}%
+\ch@ngeCouleurs{\thecontentslabel}
+\begin{tikzpicture}[remember picture, overlay]%
+\node[fill=\ch@p, anchor=south west, outer sep=0, draw=none, inner sep=.5mm,
+text=white,font=\LARGE, text width=1.5cm, align=center, minimum height=8.5mm,
+] (a) at (1.5,-0.35){\thecontentslabel};
+\node[fill=\ch@p,inner sep=0pt,rectangle,text width=1cm,
+text height=4cm,align=center,anchor=north east]
+at ($ (a) + (-2.5,2) $)
+{\rotatebox{90}{\parbox{4cm}{%
+ \centering\textcolor{white}{\LARGE\bfseries\sffamily\sc Chapter }}}};
+\foreach \x in {.25,.5,.75}{%
+ \draw[\ch@p, ultra thick] (a) ($(a.south west)!\x!(a.north west)$) --++ (-1.75,0);
+}
+\draw[\ch@p, ultra thick] ($(a.south east)!.25!(a.north east)$) --++ (\textwidth-1.6cm,0);
+\end{tikzpicture}}%
+{\hspace{3.5cm}\color{\ch@p}\Large\sc\bfseries}
+{}
+{}%
+\titlecontents{section}[10pc]
+{\addvspace{5pt}\color{blue}}
+{
+ \hspace{1cm}\Large\sc\bfseries\contentslabel[\thecontentslabel]
+ {2.4pc}}
+{}
+{\dotfill\small \thecontentspage}
+[]
+\titlecontents{subsection}[15pc]
+{\addvspace{10pt}\color{doc}}
+{\contentslabel[\thecontentslabel]{2.4pc}}
+{}
+{\dotfill\small \thecontentspage}
+[]
+\makeatletter
+\renewcommand{\tableofcontents}{%
+\chapter*{%
+\vspace*{-20\p@}%
+\begin{tikzpicture}[remember picture, overlay]%
+\pgftext[right,x=15cm,y=0.2cm]{\color{myblueii}\Huge\sc\bfseries \contentsname};%
+\draw[fill=myblueii,draw=doc!30] (13,-.75) rectangle (20,1);%
+\clip (13,-.75) rectangle (20,1);
+\pgftext[right,x=15cm,y=0.2cm]{\color{white}\Huge\sc\bfseries \contentsname};%
+\end{tikzpicture}}%
+\@starttoc{toc}}
+\makeatother
+\begin{document}
+\tableofcontents
+\chapter{Questions of Design}
+\section{(title section 1)}
+\subsection{(title sub-section 1)}
+\subsection{(title sub-section 2)}
+\section{(title section 2)}
+\subsection{(title sub-section 1)}
+\subsection{(title sub-section 2)}
+\chapter{Questions of Drawing}
+\section{(title section 1)}
+\subsection{(title sub-section 1)}
+\subsection{(title sub-section 2)}
+\section{(title section 2)}
+\subsection{(title sub-section 1)}
+\subsection{(title sub-section 2)}
+\chapter{Questions of Technique}
+\section{(title section 1)}
+\subsection{(title sub-section 1)}
+\subsection{(title sub-section 2)}
+\section{(title section 2)}
+\subsection{(title sub-section 1)}
+\subsection{(title sub-section 2)}
+\end{document}
