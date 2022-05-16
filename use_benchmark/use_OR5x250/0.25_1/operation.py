@@ -111,8 +111,10 @@ def main():
     pickle_out = open(info.sol_path, 'wb')
     if max(first)>=max(second):
         pickle.dump(popu1, pickle_out)
+        greedy.informations(greedy.BestAndBad(popu1))
     else:
         pickle.dump(popu2, pickle_out)
+        greedy.informations(greedy.BestAndBad(popu2))
 
     end=time.time()
     print(fr'running time:{end-start}')

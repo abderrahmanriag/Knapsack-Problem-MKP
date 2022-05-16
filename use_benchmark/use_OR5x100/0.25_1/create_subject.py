@@ -56,6 +56,29 @@ def setItems(lines, n):
         items.append(ii)
     return items
 
+def setKNAPSACK(lines):
+    length=lines[0][1]
+    cap=[]
+    c=0
+    n=len(lines)-1
+    while c!=int(length):
+        if '' in lines[n]:lines[n].remove('')
+        print(fr'lines={lines[n]}, length={length}, c={c}, n={n}')
+        cap=lines[n]+cap
+        c=c+len(lines[n])
+        lines[n]=''
+        n-=1
+
+    n=len(lines)-1
+    for i in range(len(lines)):
+        if lines[n]=='':
+            lines.remove(lines[n])
+        else:
+            break
+        n-=1
+
+    return cap, lines
+
 def main():
     #Get the lines of the this file using the function open_file()
     f=open_file()
@@ -65,11 +88,9 @@ def main():
         lines.append(to_list(f[i]))
 
     # Get the knapsack's info and create an instance
-    cap = lines[-1]
+    cap, lines=setKNAPSACK(lines)
     k = knapsack(cap)
-
-    # Remove the knapsack's info from the lines list
-    lines.remove(cap)
+    print(fr'cap={k.capacities}')
 
     # Get the benchmark info "number of items, dimensions
     ben=lines[0]
@@ -86,4 +107,4 @@ def main():
     pickle_out=open(info.sub_path, 'wb')
     pickle.dump([items, k], pickle_out)
 
-main()
+

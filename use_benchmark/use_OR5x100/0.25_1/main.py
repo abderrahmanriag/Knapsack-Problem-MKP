@@ -8,6 +8,7 @@ import info
 import efficiency
 import time
 import Local_Search as nm
+import create_subject
 
 def statistics(b):
     b=b[0]
