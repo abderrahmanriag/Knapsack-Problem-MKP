@@ -6,3 +6,27 @@
   year={2010},
   organization={Springer}
 }
+
+@phdthesis{fawzia2016contribution,
+  title={CONTRIBUTION A LA RESOLUTION DU PROBLEME DU SAC A DOS MULTIDIMENSIONNEL A CHOIX MULTIPLE},
+  author={Fawzia, Hamdaoui},
+  year={2016},
+  school={Universit{\'e} Mohamed Boudiaf des sciences et de la technologi}
+}
+
+
+@book{foulds2012optimization,
+  title={Optimization techniques: an introduction},
+  author={Foulds, Leslie R},
+  year={2012},
+  publisher={Springer Science \& Business Media}
+}
+
+@incollection{kellerer2004multidimensional,
+  title={Multidimensional knapsack problems},
+  author={Kellerer, Hans and Pferschy, Ulrich and Pisinger, David},
+  booktitle={Knapsack problems},
+  pages={235--283},
+  year={2004},
+  publisher={Springer}
+}

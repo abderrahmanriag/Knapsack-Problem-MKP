@@ -38,7 +38,7 @@ def supervisor_method(a):
 
 def Hill_climbing(a: Genome)->Genome:
     sim=eff.simple()
-    th=len(sim)//3
+    th=len(sim)//2
     th=sim[th:]
     f=[]
     for i in range(len(a)):

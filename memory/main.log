@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2022.1.25)  13 MAY 2022 16:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2022.1.25)  20 MAY 2022 06:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -128,6 +128,7 @@ Package: utfcode 2002/03/07  3.10a Arabic+Hebrew segment of UTF-8
 Package: utf8 2000/06/13  3.10 UTF-8 input encoding 
 
 (ArabTeX) scanner for code UTF-8 installed.)
+(ArabTeX) input encoding set to UTF-8 conventions
 (C:\Program Files\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2021/10/15 v2.17l AMS math features
 \@mathmargin=\skip51
@@ -497,6 +498,16 @@ File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 rytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )))
+(C:\Users\lenovo\AppData\Roaming\MiKTeX\tex/latex/fncychap\fncychap.sty
+Package: fncychap 2007/07/30 v1.34 LaTeX package (Revised chapters)
+\RW=\skip54
+\mylen=\skip55
+\myhi=\skip56
+\px=\skip57
+\py=\skip58
+\pyy=\skip59
+\pxx=\skip60
+)
 (C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-10-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count328
@@ -504,20 +515,20 @@ File: l3backend-pdftex.def 2021-10-18 L3 backend support: PDF output (pdfTeX)
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -528,14 +539,14 @@ LaTeX Font Info:    ... okay on input line 10.
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: twoside 
 * h-part:(L,W,R)=(28.45274pt, 557.38951pt, 28.45274pt)
-* v-part:(T,H,B)=(28.45274pt, 738.0645pt, 28.45274pt)
+* v-part:(T,H,B)=(85.35826pt, 652.70622pt, 56.9055pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
 * \textwidth=557.38951pt
-* \textheight=738.0645pt
+* \textheight=652.70622pt
 * \oddsidemargin=-43.81725pt
 * \evensidemargin=-43.81725pt
-* \topmargin=-73.88474pt
+* \topmargin=-16.97922pt
 * \headheight=12.0pt
 * \headsep=18.06749pt
 * \topskip=10.0pt
@@ -568,8 +579,38 @@ LaTeX Font Info:    ... okay on input line 10.
 \everyMPtoPDFconversion=\toks58
 ) (C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+
+(C:\Users\lenovo\AppData\Roaming\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+(C:\Users\lenovo\AppData\Roaming\MiKTeX\tex/latex/grfext\grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+(C:\Users\lenovo\AppData\Roaming\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.s
+ty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)) (C:\Users\lenovo\AppData\Roaming\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+
+(C:\Users\lenovo\AppData\Roaming\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\lenovo\AppData\Roaming\MiKTeX\tex/generic/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+))
+(C:\Program Files\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
 
 (C:\Program Files\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
@@ -614,10 +655,9 @@ Chapter 1.
 Chapter 2.
 [7]
 
-LaTeX Warning: Citation `iqbal2010solving' on page 8 undefined on input line 28
-.
+LaTeX Warning: Citation `referance1' on page 8 undefined on input line 28.
 
-<fig1.png, id=41, 661.72218pt x 284.56313pt>
+<fig1.png, id=43, 661.72218pt x 284.56313pt>
 File: fig1.png Graphic file (type png)
 <use fig1.png>
 Package pdftex.def Info: fig1.png  used on input line 54.
@@ -625,25 +665,31 @@ Package pdftex.def Info: fig1.png  used on input line 54.
 No file main.bbl.
 ) (description.tex [8 <./fig1.png>]
 Chapter 3.
-<Figure2.png, id=46, 512.66531pt x 298.86656pt>
+<Figure2.png, id=48, 512.66531pt x 298.86656pt>
 File: Figure2.png Graphic file (type png)
 <use Figure2.png>
 Package pdftex.def Info: Figure2.png  used on input line 11.
-(pdftex.def)             Requested size: 410.1328pt x 239.09355pt.
-[9
+(pdftex.def)             Requested size: 307.60155pt x 179.3213pt.
 
- <./Figure2.png>]
-<table2.png, id=50, 706.13812pt x 121.95563pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9
+
+]
+[10 <./Figure2.png>]
+<table2.png, id=55, 706.13812pt x 121.95563pt>
 File: table2.png Graphic file (type png)
 <use table2.png>
 Package pdftex.def Info: table2.png  used on input line 32.
 (pdftex.def)             Requested size: 494.29332pt x 85.36833pt.
-
+ [11 <./table2.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 40--43
 
  []
 
-[10 <./table2.png>]) [11] (main.aux)
+) [12]
+No file main.bbl.
+(main.aux)
 
  *File List*
     book.cls    2021/10/04 v1.4n Standard LaTeX document class
@@ -712,9 +758,17 @@ pgfkeys.code.tex
 pgfmath.code.tex
 pgffor.code.tex
 tikz.code.tex
+fncychap.sty    2007/07/30 v1.34 LaTeX package (Revised chapters)
 l3backend-pdftex.def    2021-10-18 L3 backend support: PDF output (pdfTeX)
 supp-pdf.mkii
 epstopdf-base.sty    2020-01-24 v2.11 Base part for package epstopdf
+infwarerr.sty    2019/12/03 v1.5 Providing info/warning/error messages (HO)
+  grfext.sty    2019/12/03 v1.3 Manage graphics extensions (HO)
+kvdefinekeys.sty    2019-12-19 v1.6 Define keys (HO)
+kvoptions.sty    2020-10-07 v3.14 Key value format for package options (HO)
+ ltxcmds.sty    2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+kvsetkeys.sty    2019/12/15 v1.18 Key value parser (HO)
+pdftexcmds.sty    2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
 epstopdf-sys.cfg    2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
   apatch.sty    2006/07/02  3.11s last minute patches 
 cover_page.tex
@@ -734,16 +788,16 @@ LaTeX Warning: There were undefined references.
  )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 10 (\begingroup)
+### semi simple group (level 1) entered at line 12 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 15882 strings out of 478659
- 301363 string characters out of 2855774
- 596392 words of memory out of 3000000
- 33668 multiletter control sequences out of 15000+600000
- 407883 words of font info for 42 fonts, out of 8000000 for 9000
+ 16497 strings out of 478659
+ 313466 string characters out of 2855774
+ 603313 words of memory out of 3000000
+ 34249 multiletter control sequences out of 15000+600000
+ 407284 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,14n,104p,1084b,1325s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 100i,14n,104p,1084b,1823s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.
 pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Prog
 ram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/Mi
@@ -753,12 +807,13 @@ msfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cm
 r10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/P
 rogram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/
 MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmsy7.pfb><C:/Users/lenovo/AppData/Roaming/MiKTeX/fonts/type1/publi
-c/arabtex/xnsh14.pfb>
-Output written on main.pdf (11 pages, 463599 bytes).
+ype1/public/amsfonts/cm/cmss12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmss17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C
+:/Users/lenovo/AppData/Roaming/MiKTeX/fonts/type1/public/arabtex/xnsh14.pfb>
+Output written on main.pdf (12 pages, 492842 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
+ 125 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

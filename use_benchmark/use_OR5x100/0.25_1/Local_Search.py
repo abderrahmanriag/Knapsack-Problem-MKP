@@ -29,7 +29,6 @@ def supervisor_method(a):
     pickle_in=open(info.sub_path, 'rb')
     items, _=pickle.load(pickle_in)
 
-
     m=change(a, a[0], len(items))
     for i in range(len(a)):
         g=change(a, a[i], len(items))
@@ -38,7 +37,7 @@ def supervisor_method(a):
 
 def Hill_climbing(a: Genome)->Genome:
     sim=eff.simple()
-    th=len(sim)//3
+    th=len(sim)//2
     th=sim[th:]
     f=[]
     for i in range(len(a)):
@@ -56,18 +55,12 @@ def Hill_climbing(a: Genome)->Genome:
 
 def mine(a: Genome)->Genome:
     return Hill_climbing(a)
-    return a
 
 
 def LS():
 
-
     pickle_in=open(info.sol_path, 'rb')
     popu=pickle.load(pickle_in)
-
-
-
-
 
     start=time.time()
     y_eff=[]
@@ -94,14 +87,12 @@ def LS():
         print('_____________________')"""
     end=time.time()
 
-
     print(fr'running time={end-start}')
     x=[]
     y=[]
     for i in range(len(popu)):
         y.append(popu[i][1])
         x.append(i)
-
 
     plt.subplot(1, 2, 1)
     plt.title('neighborhood')
@@ -111,7 +102,6 @@ def LS():
     plt.legend(loc='lower left')
     plt.xlabel('solutions')
     plt.ylabel('fitness values')
-
 
     plt.subplot(1, 2, 2)
     plt.title('time running')
@@ -123,6 +113,5 @@ def LS():
     plt.plot(x, t_eff, color='y', label='running time for efficiency method')
     plt.xlabel('solutions')
     plt.ylabel('time "s"')
-
 
     plt.show()

@@ -23,6 +23,7 @@ def greedy():
     population=SortDesc(population)
     pickle_out=open(info.sol_path, 'wb')
     pickle.dump(population, pickle_out)
+    return population
 
 def SortAccordingEff(genome)->Genome:
     sim=eff.simple()

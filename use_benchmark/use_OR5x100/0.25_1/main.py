@@ -1,14 +1,16 @@
 import pickle
+from random import choice, randint
 import matplotlib.pyplot as plt
 import numpy as np
 import greedy
 import try_methods
-import operation
+import operation as o
 import info
 import efficiency
 import time
 import Local_Search as nm
 import create_subject
+import GGAvsGA as g
 
 def statistics(b):
     b=b[0]
@@ -22,11 +24,7 @@ def statistics(b):
     return b
 
 def main():
-    operation.main()
+    o.main()
 
-    """pickle_in=open(info.sol_path, 'rb')
-    popu=pickle.load(pickle_in)
-
-    greedy.informations(greedy.BestAndBad(popu))"""
 
 main()

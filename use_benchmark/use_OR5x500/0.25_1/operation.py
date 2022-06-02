@@ -1,5 +1,5 @@
 import pickle
-from random import choices, randint
+from random import choices, randint, choice
 from typing import List
 import info
 import greedy
@@ -10,6 +10,9 @@ import Local_Search as LS
 
 Genome=List[int]
 Population=List[Genome]
+pickle_in=open(info.sub_path, 'rb')
+items, _=pickle.load(pickle_in)
+length_items=len(items)
 
 def Hill_climbing(a: Genome)->Genome:
     sim=eff.simple()
@@ -41,7 +44,19 @@ def selection_pair(population)->Population:
 def crossover(a:Genome, b:Genome)->Population:
     length=len(b)
     p=randint(0, length-1)
-    return a[0:p]+b[p:], b[0:p]+a[p:]
+    return sorted(set(a[0:p]+b[p:])), sorted(set(b[0:p]+a[p:]))
+
+def mutation(a:Genome):
+    r=randint(0, length_items-1)
+    a.append(r)
+    value=greedy.fitness(a)
+    if value==0:
+        a.remove(r)
+    return [a, value]
+
+
+def toMutation(a:Genome, b:Genome):
+    return mutation(a), mutation(b)
 
 def genetic(population: Population, cand:int)->Population:
     candidates=[]
@@ -52,8 +67,10 @@ def genetic(population: Population, cand:int)->Population:
     b=b[0]
     length=min(len(a), len(b))
     if length==len(b):
-        return crossover(a, b)
-    return crossover(b, a)
+        a, b= crossover(a, b)
+        return mutation(a), mutation(b)
+    b, a= crossover(b, a)
+    return mutation(b), mutation(a)
 
 def process(population=Population, pc=float)->Population:
 
@@ -64,7 +81,7 @@ def process(population=Population, pc=float)->Population:
     cand=ps*pc
 
     a, b=genetic(population, int(cand))
-    a, b=local_search(a, b)
+    a, b=local_search(a[0], b[0])
 
     population[-1]=a; population[-2]=b
 
@@ -98,7 +115,7 @@ def main():
     g = 500  # number of generations
     #Crossover probability
     pc1=0.2
-    pc2=0.7
+    pc2=0.1
     start = time.time()
     print(fr'crossover probability pc={pc1}, and pc={pc2}')
     print(fr'build {g} generations...')

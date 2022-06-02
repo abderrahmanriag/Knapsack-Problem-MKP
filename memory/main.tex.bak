@@ -1,22 +1,38 @@
-\documentclass[]{book}
+\documentclass[a4paper, 12pt]{book}
+%load arabic font
 \usepackage{arabtex}
-\usepackage{float}
 \usepackage{utf8}
+\setcode{utf8}
+%===============
+\usepackage{float}
+%load math lib
 \usepackage{amsmath}
+
 \usepackage[vmargin={13mm, 13mm}, hmargin={10mm, 15mm}]{geometry}
+%load the images lib
 \usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage[Rejne]{fncychap}
 \pagestyle{plain}
-\geometry{left=1cm, right=1cm, top=1cm, bottom=1cm}
+\geometry{left=2cm, right=1cm, top=3cm, bottom=3cm}
 \begin{document}
-\thispagestyle{empty}
 \renewcommand{\thesection}{\arabic{section}}
+\thispagestyle{empty}
 \input{cover_page}
+\newpage
+\input{abstract}
+\thispagestyle{empty}
 \tableofcontents
+\thispagestyle{empty}
+\newpage
 \newpage
 \input{introduction}
 \newpage
-\input{presentation}
-\input{description}
-\newpage
+\input{chapter1}
+\input{chapter2}
+
+\bibliographystyle{plain}
+\bibliography{sample.bib}
+
 
 \end{document}
